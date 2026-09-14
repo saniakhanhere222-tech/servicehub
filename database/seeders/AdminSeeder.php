@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class AdminSeeder extends Seeder
@@ -12,6 +12,16 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        User::firstOrCreate(
+            [
+                'email' => 'admin@servicehub.test',
+            ],
+            [
+                'name' => 'ServiceHub Admin',
+                'password' => 'password',
+                'role' => 'admin',
+            ]
+        );
     }
 }
+
